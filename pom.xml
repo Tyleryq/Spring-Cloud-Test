@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.test</groupId>
+  <artifactId>cloudTest</artifactId>
+  <packaging>pom</packaging>  <!--使用多模块,作为父项目-->
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+      <module>Payment8001</module>
+      <module>customer-order9000</module>
+      <module>commons-api</module>
+      <module>eureka-server7001</module>
+      <module>eureka-server7002</module>
+      <module>Payment8002</module>
+      <module>Payment8006</module>
+      <module>consul-customer-order9006</module>
+      <module>openfeign-customer-order9001</module>
+      <module>hystrix-payment8001</module>
+      <module>customer-feign-hystrix-order9000</module>
+      <module>customer-hystrix-dashboard9001</module>
+      <module>gateway9527</module>
+      <module>config-center3344</module>
+    <module>config-server3344</module>
+      <module>config-client3355</module>
+      <module>config-bus-client3366</module>
+      <module>cloud-stream-provider8801</module>
+      <module>cloud-stream-customer8802</module>
+      <module>cloud-stream-customer8803</module>
+  </modules>
+  <name>cloudTest Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+
+  </dependencies>
+  <build>
+    <finalName>cloudTest</finalName>
+  </build>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <junit.version>4.12</junit.version>
+    <log4j.version>1.2.17</log4j.version>
+    <lombok.version>1.16.18</lombok.version>
+    <mysql.version>8.0.13</mysql.version>
+    <druid.version>1.1.6</druid.version>
+    <mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
+  </properties>
+
+  <!-- 子模块继承之后，提供作用:锁定版本+ Fmodlue不用写groupId version -->
+  <!--使用pom.xml中的dependencyManagement元素能让所有在子项目中引用一个依赖而不用显式的列出版本号。
+Maven会沿着父子层次向上走，直到找到一个拥有dependencyManagement元素的项目，然后它就会使用这个
+dependencyManagement元素中指定的版本号。
+如果子项目中指定了版本号,那么会使用子项目中指定的jar版本。
+
+-->
+  <dependencyManagement>
+    <dependencies>
+      <!--spring boot 2.2.2-->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.2.2.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!--spring cloud Hoxton. SR1-->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Hoxton.SR1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!--spring cloud alibaba 2.1.0.RELEASE-->
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>2.1.0.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis.spring.boot.version}</version>
+      </dependency>
+
+
+    </dependencies>
+  </dependencyManagement>
+
+</project>

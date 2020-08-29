@@ -1,0 +1,38 @@
+server :
+  port: 3366
+
+spring:
+  application:
+    name: corfig-bus-client
+  cloud:
+  #Config客户端配置
+    config:
+      label: master #分支名称
+      name: config #配置文件名称
+      profile: dev #读取后缀名称
+      uri: http://localhost:3344 #配置中心地址
+      # 综合: master分支config-dev.yml的配置文件被读取http://localhost:3344/master/config-dev.yml
+
+  #rabbitmq相关配置15672 是web管理界面的端口; 5672 是MQ访问的端口
+  rabbitmq:
+    host: localhost
+    port: 5672  #rabbitmq端口
+    username: guest
+    password: guest
+
+
+eureka:
+  client:
+    #表示是否将自己注册进Eurekaserver默认为true。
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负裁均衡
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+##rabbitmq相关配置,暴露bus刷新配置的端点
+management:
+  endpoints: #暴露bus辟新配置的端点
+    web:
+      exposure:
+        include: "*"

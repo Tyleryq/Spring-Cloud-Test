@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-client3355" />
+        <module name="customer-hystrix-dashboard9001" />
+        <module name="Payment8006" />
+        <module name="customer-feign-hystrix-order9000" />
+        <module name="openfeign-customer-order9001" />
+        <module name="Payment8002" />
+        <module name="Payment8001" />
+        <module name="cloud-stream-customer8803" />
+        <module name="cloud-stream-customer8802" />
+        <module name="customer-order9000" />
+        <module name="hystrix-payment8001" />
+        <module name="config-server3344" />
+        <module name="gateway9527" />
+        <module name="commons-api" />
+        <module name="consul-customer-order9006" />
+        <module name="eureka-server7001" />
+        <module name="eureka-server7002" />
+        <module name="config-bus-client3366" />
+        <module name="cloud-stream-provider8801" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="config-center3344" target="1.8" />
+      <module name="eureka-server7001 (1)" target="1.8" />
+      <module name="eurekaserver7002" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
